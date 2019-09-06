@@ -9,10 +9,11 @@ class RoomTest < MiniTest::Test
 
   def setup()
 
+    @song3 = Song.new("RICKY")
     @room1 = Room.new("Zebra Room")
     @room2 = Room.new("Monkey Room")
     @room3 = Room.new("Blue Room")
-    @guest1 = Guest.new("Neil", "Kim & Jessie")
+    @guest1 = Guest.new("Neil", @song3)
     @song1 = Song.new("Kim & Jessie")
 
 
