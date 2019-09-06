@@ -48,4 +48,11 @@ class RoomTest < MiniTest::Test
     assert_equal(105, @room1.till)
   end
 
+  def test_guest_reaction()
+    @room1.add_song_to_room(@song3)
+    @room1.add_guest_to_room(@guest1)
+    @room1.guest_reaction()
+    assert_equal("Whoo!", @guest1.cheer())
+  end
+
 end

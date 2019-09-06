@@ -25,4 +25,10 @@ class Room
     @till += amount
     guest.remove_money_from_guest(amount)
   end
+
+  def guest_reaction()
+    if @song == @occupants[0].fav_song
+      @occupants[0].cheer()
+    end
+  end
 end
