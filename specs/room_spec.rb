@@ -1,6 +1,8 @@
 require('minitest/autorun')
 require('minitest/rg')
 require_relative('../room.rb')
+require_relative('../guest.rb')
+require_relative('../song.rb')
 
 
 class RoomTest < MiniTest::Test
@@ -8,8 +10,10 @@ class RoomTest < MiniTest::Test
   def setup()
 
     @room1 = Room.new("Zebra Room")
-    @room2 = Room.new("Sun Room")
+    @room2 = Room.new("Monkey Room")
     @room3 = Room.new("Blue Room")
+    @guest1 = Guest.new("Neil", "Kim & Jessie")
+    @song1 = Song.new("Kim & Jessie")
 
 
   end
@@ -18,6 +22,19 @@ class RoomTest < MiniTest::Test
     assert_equal("Zebra Room", @room1.name)
   end
 
+  def test_add_guest_to_room()
+    @room1.add_guest_to_room(@guest1)
+    assert_equal(1, @room1.occupants.length())
+  end
 
+  def test_remove_guest_from_room()
+    @room1.remove_guest_from_room(@guest1)
+    assert_equal(0, @room1.occupants.length())
+  end
+
+  def test_add_song_to_room()
+    @room1.add_song_to_room(@song1)
+    assert_equal(1, @room1.song.length())
+  end
 
 end
