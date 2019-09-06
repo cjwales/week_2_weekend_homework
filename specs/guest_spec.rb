@@ -29,4 +29,8 @@ class GuestTest < MiniTest::Test
     assert_equal(5, @guest1.wallet)
   end
 
+  def test_guest_can_cheer()
+    assert_equal("Whoo!", @guest1.cheer())
+  end
+
 end

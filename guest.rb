@@ -14,4 +14,8 @@ class Guest
     @wallet -= amount
   end
 
+  def cheer()
+    return "Whoo!"
+  end
+
 end
