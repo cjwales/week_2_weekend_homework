@@ -5,14 +5,18 @@ require_relative('../room.rb')
 
 class RoomTest < MiniTest::Test
 
-def setup()
+  def setup()
 
-@room1 = Room.new("Zebra Room")
-@room2 = Room.new("Sun Room")
-@room3 = Room.new("Blue Room")
+    @room1 = Room.new("Zebra Room")
+    @room2 = Room.new("Sun Room")
+    @room3 = Room.new("Blue Room")
 
 
-end
+  end
+
+  def test_get_room_name()
+    assert_equal("Zebra Room", @room1.name)
+  end
 
 
 
