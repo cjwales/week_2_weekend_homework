@@ -10,10 +10,10 @@ class RoomTest < MiniTest::Test
   def setup()
 
     @song3 = Song.new("RICKY")
-    @room1 = Room.new("Zebra Room")
-    @room2 = Room.new("Monkey Room")
-    @room3 = Room.new("Blue Room")
-    @guest1 = Guest.new("Neil", @song3)
+    @room1 = Room.new("Zebra Room", 100)
+    @room2 = Room.new("Monkey Room", 200)
+    @room3 = Room.new("Blue Room", 50)
+    @guest1 = Guest.new("Neil", @song3, 10)
     @song1 = Song.new("Kim & Jessie")
 
 
@@ -36,6 +36,16 @@ class RoomTest < MiniTest::Test
   def test_add_song_to_room()
     @room1.add_song_to_room(@song1)
     assert_equal(1, @room1.song.length())
+  end
+
+  def test_get_till_balance()
+    assert_equal(100, @room1.till)
+  end
+
+  def test_room_charge_customer()
+    @room1.charge_customer(@guest1, 5)
+    assert_equal(5, @guest1.wallet)
+    assert_equal(105, @room1.till)
   end
 
 end

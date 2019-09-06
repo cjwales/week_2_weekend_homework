@@ -1,9 +1,10 @@
 class Room
 
-  attr_reader :name, :occupants, :song
+  attr_reader :name, :till, :occupants, :song
 
-  def initialize(name)
+  def initialize(name, till)
     @name = name
+    @till = till
     @occupants = []
     @song = []
   end
@@ -18,5 +19,10 @@ class Room
 
   def add_song_to_room(song)
     @song.push(song)
+  end
+
+  def charge_customer(guest, amount)
+    @till += amount
+    guest.remove_money_from_guest(amount)
   end
 end
