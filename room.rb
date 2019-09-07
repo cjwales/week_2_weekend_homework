@@ -33,7 +33,7 @@ class Room
   # end
 
   def guest_reaction()
-    @occupants.any? { |occupant| occupant.fav_song == @song;
+    @occupants.each { |occupant| occupant.fav_song == @song
       occupant.cheer() }
     end
   end
