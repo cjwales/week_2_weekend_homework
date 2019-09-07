@@ -26,9 +26,14 @@ class Room
     guest.remove_money_from_guest(amount)
   end
 
+  # def guest_reaction() <-- old bad method
+  #   if @song == @occupants[0].fav_song
+  #     @occupants[0].cheer()
+  #   end
+  # end
+
   def guest_reaction()
-    if @song == @occupants[0].fav_song
-      @occupants[0].cheer()
+    @occupants.any? { |occupant| occupant.fav_song == @song;
+      occupant.cheer() }
     end
   end
-end
