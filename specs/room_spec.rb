@@ -14,6 +14,10 @@ class RoomTest < MiniTest::Test
     @room2 = Room.new("Monkey Room", 200)
     @room3 = Room.new("Blue Room", 50)
     @guest1 = Guest.new("Neil", @song3, 10)
+    @guest2 = Guest.new("Simon", @song3, 10)
+    @guest3 = Guest.new("James", @song3, 10)
+    @guest4 = Guest.new("Rebecca", @song3, 10)
+    @guest5 = Guest.new("Sarah", @song3, 10)
     @song1 = Song.new("Kim & Jessie")
 
 
@@ -54,5 +58,15 @@ class RoomTest < MiniTest::Test
     @room1.guest_reaction()
     assert_equal("Whoo!", @guest1.cheer())
   end
+
+  def test_room_full_check()
+    @room1.add_guest_to_room(@guest1)
+    @room1.add_guest_to_room(@guest2)
+    @room1.add_guest_to_room(@guest3)
+    @room1.add_guest_to_room(@guest4)
+    @room1.add_guest_to_room(@guest5)
+    assert_equal(4, @room1.occupants.length())
+  end
+
 
 end

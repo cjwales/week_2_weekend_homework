@@ -9,8 +9,10 @@ class Room
     @song = []
   end
 
-  def add_guest_to_room(guest)
-    @occupants.push(guest)
+  def add_guest_to_room(guest) #Wont let in more than 4 guests
+    if @occupants.length() <= 3
+      @occupants.push(guest)
+    end
   end
 
   def remove_guest_from_room(guest)
